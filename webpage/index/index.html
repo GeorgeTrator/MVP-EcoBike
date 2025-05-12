@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EcoBike MVP</title>
+
+  <!-- Google Analytics (substitua GA_MEASUREMENT_ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="logo">EcoBike</h1>
+    <nav>
+      <a href="#estações">Estações</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Alugue e-bikes em Joinville</h2>
+    <p>Rápido, barato e sustentável</p>
+    <a href="#estações" class="btn">Ver estações</a>
+  </section>
+
+  <main id="estações" class="card-container">
+    <!-- Cada card representa um bairro -->
+    <div class="card" data-bairro="Centro">
+      <h3>Centro</h3>
+      <button class="btn rent-btn">Quero alugar</button>
+    </div>
+    <div class="card" data-bairro="Saguaçú">
+      <h3>Saguaçú</h3>
+      <button class="btn rent-btn">Quero alugar</button>
+    </div>
+    <div class="card" data-bairro="América">
+      <h3>América</h3>
+      <button class="btn rent-btn">Quero alugar</button>
+    </div>
+    <div class="card" data-bairro="Iririú">
+      <h3>Iririú</h3>
+      <button class="btn rent-btn">Quero alugar</button>
+    </div>
+    <div class="card" data-bairro="Atiradores">
+      <h3>Atiradores</h3>
+      <button class="btn rent-btn">Quero alugar</button>
+    </div>
+  </main>
+
+  <!-- Modal de inscrição -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="close-modal" class="close">&times;</span>
+      <h2>Informe seus dados</h2>
+      <form id="rental-form" action="GOOGLE_FORM_ACTION_URL" method="POST" target="hidden-form">
+        <!-- Campos enviados ao Google Forms -->
+        <input type="hidden" name="entry.BAIRRO_ID" id="field-bairro">
+        <label>
+          Duração:
+          <select name="entry.DURACAO_ID" id="field-duracao" required>
+            <option value="1 dia">1 dia</option>
+            <option value="1 semana">1 semana</option>
+          </select>
+        </label>
+        <label>
+          Tipo de bike:
+          <select name="entry.BIKE_ID" id="field-bike" required>
+            <option value="Elétrica">Elétrica</option>
+            <option value="Convencional">Convencional</option>
+          </select>
+        </label>
+        <label>
+          Pagamento:
+          <select name="entry.PAGAMENTO_ID" id="field-pagamento" required>
+            <option value="Cartão de crédito">Cartão de crédito</option>
+            <option value="Pix">Pix</option>
+            <option value="Dinheiro">Dinheiro</option>
+          </select>
+        </label>
+        <label>
+          E-mail:
+          <input type="email" name="entry.EMAIL_ID" id="field-email" required>
+        </label>
+        <button type="submit" class="btn">Enviar interesse</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Iframe invisível para envio do form -->
+  <iframe name="hidden-form" style="display:none;"></iframe>
+
+  <section id="sobre" class="about">
+    <h2>Sobre o MVP</h2>
+    <p>
+      Este site coleta seu interesse real em alugar e-bikes em Joinville.  
+      Com cada clique e inscrição, validamos bairros, tipo de bike, duração e forma de pagamento.
+    </p>
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2025 EcoBike</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
