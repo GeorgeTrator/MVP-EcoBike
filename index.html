@@ -5,20 +5,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>EcoBike MVP</title>
 
-  <!-- Google Analytics -->
+  <!-- Google Analytics (substitua GA_MEASUREMENT_ID) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HBLCYV136S"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-HBLCYV136S'); // config e GA_MEASUREMENT_ID
+    gtag('config', 'G-HBLCYV136S');
   </script>
 
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <h1 class="logo">EcoBike</h1>
+    <div class="logo-container">
+      <img src="imgs/Logo.png" alt="EcoBike Logo" class="logo-img">
+      <h1 class="site-title">EcoBike</h1>
+    </div>
     <nav>
       <a href="#estações">Estações</a>
       <a href="#sobre">Sobre</a>
@@ -58,35 +61,30 @@
   <!-- Modal de inscrição -->
   <div id="modal" class="modal hidden">
     <div class="modal-content">
-      <span id="close-modal" class="close">&times;</span>
+      <span id="close-modal" class="close">×</span>
       <h2>Informe seus dados</h2>
       <form id="rental-form" action="GOOGLE_FORM_ACTION_URL" method="POST" target="hidden-form">
-        <!-- Campos enviados ao Google Forms -->
         <input type="hidden" name="entry.BAIRRO_ID" id="field-bairro">
-        <label>
-          Duração:
+        <label>Duração:
           <select name="entry.DURACAO_ID" id="field-duracao" required>
             <option value="1 dia">1 dia</option>
             <option value="1 semana">1 semana</option>
           </select>
         </label>
-        <label>
-          Tipo de bike:
+        <label>Tipo de bike:
           <select name="entry.BIKE_ID" id="field-bike" required>
             <option value="Elétrica">Elétrica</option>
             <option value="Convencional">Convencional</option>
           </select>
         </label>
-        <label>
-          Pagamento:
+        <label>Pagamento:
           <select name="entry.PAGAMENTO_ID" id="field-pagamento" required>
             <option value="Cartão de crédito">Cartão de crédito</option>
             <option value="Pix">Pix</option>
             <option value="Dinheiro">Dinheiro</option>
           </select>
         </label>
-        <label>
-          E-mail:
+        <label>E-mail:
           <input type="email" name="entry.EMAIL_ID" id="field-email" required>
         </label>
         <button type="submit" class="btn">Enviar interesse</button>
@@ -97,13 +95,16 @@
   <!-- Iframe invisível para envio do form -->
   <iframe name="hidden-form" style="display:none;"></iframe>
 
+  <!-- Seção Sobre -->
   <section id="sobre" class="about">
     <h2>Sobre o MVP</h2>
-    <p>
-      Este site coleta seu interesse real em alugar e-bikes em Joinville.  
-      Com cada clique e inscrição, validamos bairros, tipo de bike, duração e forma de pagamento.
-    </p>
+    <p>Este site coleta seu interesse real em alugar e-bikes em Joinville. Com cada clique e inscrição, validamos bairros, tipo de bike, duração e forma de pagamento.</p>
   </section>
+
+  <!-- QR Code fixo no canto -->
+  <div id="qr-code" class="qr-code">
+    <img src="imgs/siteQrCode.png" alt="QR Code EcoBike" id="qr-img">
+  </div>
 
   <footer class="site-footer">
     <p>© 2025 EcoBike</p>

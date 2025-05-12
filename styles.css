@@ -1,17 +1,33 @@
-/* Reset rápido */
-* { margin:0; padding:0; box-sizing:border-box; }
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
 
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
+/* Cores da logo: verde e azul */
+:root {
+  --green: #6DBE45;
+  --blue: #32A9E4;
+  --dark: #222;
 }
+
 .site-header {
-  background: #006400;
+  background: var(--dark);
   color: #fff;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+.logo-img {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+.site-title {
+  font-size: 1.5rem;
+  color: var(--green);
 }
 .site-header a {
   color: #fff;
@@ -20,13 +36,13 @@ body {
 }
 
 .hero {
-  background: url('hero-bg.jpg') center/cover no-repeat;
+  background: var(--blue);
   color: #fff;
   text-align: center;
   padding: 4rem 1rem;
 }
 .hero .btn {
-  background: #ffa500;
+  background: var(--green);
   color: #000;
 }
 
@@ -37,57 +53,77 @@ body {
   padding: 2rem;
 }
 .card {
-  border: 1px solid #ccc;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   padding: 1rem;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 .btn {
   display: inline-block;
   margin-top: 0.5rem;
   padding: 0.5rem 1rem;
-  background: #006400;
+  background: var(--dark);
   color: #fff;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background 0.2s;
 }
-.btn:hover {
-  opacity: 0.9;
-}
+.btn:hover { background: var(--green); }
 
 /* Modal */
 .modal {
-  position: fixed;
-  top:0; left:0;
+  position: fixed; top:0; left:0;
   width:100%; height:100%;
   background: rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
 .modal.hidden { display: none; }
 .modal-content {
   background: #fff;
   padding: 2rem;
-  width: 90%;
-  max-width: 400px;
+  width: 90%; max-width: 400px;
   border-radius: 8px;
   position: relative;
 }
 .close {
-  position: absolute;
-  top:0.5rem; right:1rem;
-  font-size:1.5rem;
-  cursor: pointer;
+  position: absolute; top:0.5rem; right:1rem;
+  font-size:1.5rem; cursor: pointer;
 }
 
 .about {
   padding: 2rem;
-  background: #f4f4f4;
+  background: #eaeaea;
 }
 
 .site-footer {
   text-align: center;
   padding: 1rem;
-  background: #222;
+  background: var(--dark);
   color: #fff;
 }
+
+/* QR Code */
+.qr-code {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.qr-code:hover { opacity: 0.8; transform: scale(1.1); }
+#qr-img { width: 100%; height: 100%; border-radius: 8px; }
+
+/* Overlay expandido */
+#qr-overlay {
+  position: fixed; top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.8);
+  display: none; align-items: center; justify-content: center;
+  z-index: 1000;
+}
+#qr-overlay img { max-width: 80%; max-height: 80%; border-radius: 8px; }
