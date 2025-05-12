@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>EcoBike MVP</title>
 
-  <!-- Google Analytics (substitua GA_MEASUREMENT_ID) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HBLCYV136S"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -17,25 +17,28 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- HEADER -->
   <header class="site-header">
-    <div class="logo-container">
-      <img src="imgs/Logo.png" alt="EcoBike Logo" class="logo-img">
-      <h1 class="site-title">EcoBike</h1>
-    </div>
+    <h1 class="site-title">EcoBike</h1>
     <nav>
       <a href="#estações">Estações</a>
       <a href="#sobre">Sobre</a>
+      <a href="#faq">Dúvidas</a>
     </nav>
   </header>
 
+  <!-- HERO COM PARALLAX + LOGO AO FUNDO -->
   <section class="hero">
-    <h2>Alugue e-bikes em Joinville</h2>
-    <p>Rápido, barato e sustentável</p>
-    <a href="#estações" class="btn">Ver estações</a>
+    <div class="hero-overlay">
+      <h2>Alugue e-bikes em Joinville</h2>
+      <p>Rápido, barato e sustentável</p>
+      <a href="#estações" class="btn">Ver estações</a>
+    </div>
   </section>
 
+  <!-- ESTAÇÕES -->
   <main id="estações" class="card-container">
-    <!-- Cada card representa um bairro -->
     <div class="card" data-bairro="Centro">
       <h3>Centro</h3>
       <button class="btn rent-btn">Quero alugar</button>
@@ -58,7 +61,7 @@
     </div>
   </main>
 
-  <!-- Modal de inscrição -->
+  <!-- MODAL DE INSCRIÇÃO -->
   <div id="modal" class="modal hidden">
     <div class="modal-content">
       <span id="close-modal" class="close">×</span>
@@ -81,7 +84,7 @@
           <select name="entry.PAGAMENTO_ID" id="field-pagamento" required>
             <option value="Cartão de crédito">Cartão de crédito</option>
             <option value="Pix">Pix</option>
-            <option value="Dinheiro">Dinheiro</option>
+            <option value="Cartão de débito">Cartão de débito</option>
           </select>
         </label>
         <label>E-mail:
@@ -91,23 +94,47 @@
       </form>
     </div>
   </div>
-
-  <!-- Iframe invisível para envio do form -->
   <iframe name="hidden-form" style="display:none;"></iframe>
 
-  <!-- Seção Sobre -->
+  <!-- SOBRE O MVP -->
   <section id="sobre" class="about">
     <h2>Sobre o MVP</h2>
-    <p>Projeto de AMS, UDESC-Joinville.</p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, 
+      urna in bibendum finibus, mauris nunc fringilla sapien, sit amet luctus eros 
+      nunc vitae turpis. Sed sit amet lacus eu arcu ultricies pretium.
+    </p>
   </section>
 
-  <!-- QR Code fixo no canto -->
+  <!-- FAQ COLAPSÁVEL -->
+  <section id="faq" class="faq">
+    <h2>Dúvidas Frequentes</h2>
+    <details>
+      <summary>Não encontrei a minha região, e agora?</summary>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </details>
+    <details>
+      <summary>É possível pagar com dinheiro?</summary>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </details>
+    <details>
+      <summary>Como funciona a retirada?</summary>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </details>
+    <details>
+      <summary>Onde retirar e onde devolver?</summary>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </details>
+  </section>
+
+  <!-- QR CODE -->
   <div id="qr-code" class="qr-code">
     <img src="imgs/siteQrCode.png" alt="QR Code EcoBike" id="qr-img">
   </div>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <p>© 2025 EcoBike</p>
+    <p>© 2025 <a href="https://github.com/GeorgeTrator" target="_blank" id="footer-link">KingTrator</a></p>
   </footer>
 
   <script src="script.js"></script>
