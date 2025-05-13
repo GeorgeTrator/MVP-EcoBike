@@ -1,15 +1,30 @@
-// Eventos do formulário de aluguel
+// — Rotação parallax do hero com 3 imagens —
+const hero = document.getElementById('hero');
+const images = [
+  'imgs/bike1.png',
+  'imgs/bike2.png',
+  'imgs/bike3.png',
+  'imgs/Logo.png'
+];
+let idx = 0;
+function rotateHero() {
+  hero.style.backgroundImage = `url('${images[idx]}')`;
+  idx = (idx + 1) % images.length;
+}
+rotateHero();
+setInterval(rotateHero, 5000);
+
+// — Modal de aluguel —
 const rentButtons = document.querySelectorAll('.rent-btn');
 const modal       = document.getElementById('modal');
 const closeBtn    = document.getElementById('close-modal');
 const form        = document.getElementById('rental-form');
-
 const fieldBairro    = document.getElementById('field-bairro');
 const fieldDuracao   = document.getElementById('field-duracao');
 const fieldBike      = document.getElementById('field-bike');
 const fieldPagamento = document.getElementById('field-pagamento');
 
-// Abrir modal ao clicar em “Quero alugar”
+// Abre e registra clique
 rentButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     const bairro = btn.closest('.card').dataset.bairro;
@@ -19,12 +34,10 @@ rentButtons.forEach(btn => {
   });
 });
 
-// Fechar modal
-closeBtn.addEventListener('click', () => {
-  modal.classList.add('hidden');
-});
+// Fecha modal
+closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
 
-// Submissão do formulário
+// Submissão de aluguel
 form.addEventListener('submit', () => {
   gtag('event', 'submit_rental', {
     bairro: fieldBairro.value,
@@ -35,16 +48,31 @@ form.addEventListener('submit', () => {
   setTimeout(() => modal.classList.add('hidden'), 500);
 });
 
-// Expansão do QR code
-const qrCode = document.getElementById('qr-code');
-const qrImg  = document.getElementById('qr-img');
+// — Modal de Newsletter —
+const newsLink   = document.getElementById('nav-news');
+const newsModal  = document.getElementById('newsletter');
+const closeNews  = document.getElementById('close-news');
+const newsForm   = document.getElementById('newsletter-form');
 
+newsLink.addEventListener('click', e => {
+  e.preventDefault();
+  newsModal.classList.remove('hidden');
+  gtag('event', 'open_newsletter');
+});
+closeNews.addEventListener('click', () => newsModal.classList.add('hidden'));
+newsForm.addEventListener('submit', () => {
+  gtag('event', 'submit_newsletter', {
+    name: newsForm.querySelector('input[name="entry.NOME_ID"]').value
+  });
+  setTimeout(() => newsModal.classList.add('hidden'), 500);
+});
+
+// — QR code overlay —
+const qrCode = document.getElementById('qr-code');
 qrCode.addEventListener('click', () => {
   const overlay = document.createElement('div');
   overlay.className = 'qr-overlay';
-  const img = document.createElement('img');
-  img.src = qrImg.src;
-  overlay.appendChild(img);
+  overlay.innerHTML = `<img src="${qrCode.querySelector('img').src}">`;
   document.body.appendChild(overlay);
-  overlay.addEventListener('click', () => document.body.removeChild(overlay));
+  overlay.addEventListener('click', () => overlay.remove());
 });

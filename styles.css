@@ -1,10 +1,11 @@
 :root {
   --verde-logo: #63b752;
   --azul-logo: #00b4d8;
-  --fundo-claro: #f4f4f4;
-  --preto: #111;
+  --highlight: #ffe066;
   --branco: #fff;
+  --preto: #111;
   --cinza-claro: #fafafa;
+  --fundo-claro: #f4f4f4;
 }
 
 * {
@@ -15,8 +16,8 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  color: var(--preto);
   background: var(--cinza-claro);
+  color: var(--preto);
   line-height: 1.6;
 }
 
@@ -29,7 +30,7 @@ body {
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
 }
 .site-title {
   color: var(--branco);
@@ -41,20 +42,24 @@ body {
   margin-left: 1.5rem;
   text-decoration: none;
   font-weight: 600;
+  transition: color .3s, transform .2s;
 }
-.site-header nav a:hover {
-  text-decoration: underline;
+#nav-news:hover {
+  color: var(--highlight);
+  transform: scale(1.1);
 }
 
-/* HERO COM PARALLAX E LOGO */
+/* HERO PARALLAX ROTATIVO */
 .hero {
-  background: url('imgs/Logo.png') center/cover fixed no-repeat,
-              var(--azul-logo);
-  position: relative;
+  background: var(--azul-logo);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-image .8s ease-in-out;
 }
 .hero-overlay {
   background: rgba(0, 0, 0, 0.4);
@@ -129,7 +134,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  z-index: 100;
+  z-index: 200;
 }
 .modal.hidden {
   display: none;
@@ -230,70 +235,26 @@ body {
 }
 
 /* QR CODE */
-.qr-code {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  z-index: 20;
-  transition: transform 0.3s;
-}
-.qr-code:hover {
-  transform: scale(1.1);
-}
-.qr-code img {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  border: 2px solid var(--azul-logo);
-}
+.qr-code { position: fixed; bottom: 1rem; right: 1rem; width: 60px; height: 60px; cursor: pointer; z-index: 150; transition: transform 0.3s; }
+.qr-code:hover { transform: scale(1.1); }
+.qr-code img { width: 100%; height: 100%; border-radius: 8px; border: 2px solid var(--azul-logo); }
 
-/* OVERLAY DE QR */
-.qr-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 30;
-}
-.qr-overlay img {
-  width: 80vw;
-  max-width: 360px;
-  border-radius: 12px;
-  box-shadow: 0 0 24px var(--azul-logo);
-}
+/* QR OVERLAY */
+.qr-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 250; }
+.qr-overlay img { width: 80vw; max-width: 360px; border-radius: 12px; box-shadow: 0 0 24px var(--azul-logo); }
 
 /* FOOTER */
-.site-footer {
-  background: var(--preto);
-  color: var(--branco);
-  text-align: center;
-  padding: 1.5rem 0;
-  margin-top: 2rem;
-}
-#footer-link {
-  color: var(--branco);
-  text-decoration: none;
-  font-weight: 600;
-  transition: text-shadow 0.3s;
-}
-#footer-link:hover {
-  text-shadow: 0 0 8px var(--verde-logo);
-}
+.site-footer { background: var(--preto); color: var(--branco); text-align: center; padding: 1.5rem 0; margin-top: 2rem; }
+#footer-link { color: var(--branco); text-decoration: none; font-weight: 600; transition: text-shadow 0.3s; }
+#footer-link:hover { text-shadow: 0 0 8px var(--verde-logo); }
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
-  .hero h2 { font-size: 2rem; }
-  .hero p  { font-size: 1rem; }
-  .site-header { padding: 0.8rem 1rem; }
+  .hero { min-height: 50vh; }
+  .site-header { flex-wrap: wrap; padding: 1rem; }
   .site-header nav a { margin-left: 1rem; font-size: 0.9rem; }
 }
 @media (max-width: 480px) {
-  .hero { min-height: 50vh; }
   .hero-overlay { padding: 1.5rem; }
   .card-container { padding: 1rem; }
 }

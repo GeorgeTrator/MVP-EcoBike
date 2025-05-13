@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>EcoBike MVP</title>
+  <title>EcoBike</title>
+  <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HBLCYV136S"></script>
@@ -25,11 +26,12 @@
       <a href="#estações">Estações</a>
       <a href="#sobre">Sobre</a>
       <a href="#faq">Dúvidas</a>
+      <a href="#" id="nav-news">Assinar Newsletter</a>
     </nav>
   </header>
 
-  <!-- HERO COM PARALLAX + LOGO AO FUNDO -->
-  <section class="hero">
+  <!-- HERO COM PARALLAX ROTATIVO -->
+  <section class="hero" id="hero">
     <div class="hero-overlay">
       <h2>Alugue e-bikes em Joinville</h2>
       <p>Rápido, barato e sustentável</p>
@@ -61,7 +63,7 @@
     </div>
   </main>
 
-  <!-- MODAL DE INSCRIÇÃO -->
+  <!-- MODAL DE INSCRIÇÃO AO ALUGUEL -->
   <div id="modal" class="modal hidden">
     <div class="modal-content">
       <span id="close-modal" class="close">×</span>
@@ -96,14 +98,20 @@
   </div>
   <iframe name="hidden-form" style="display:none;"></iframe>
 
-  <!-- SOBRE O MVP -->
+  <!-- SOBRE O PROJETO -->
   <section id="sobre" class="about">
-    <h2>Sobre o MVP</h2>
+    <h2>Sobre o Projeto</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, 
-      urna in bibendum finibus, mauris nunc fringilla sapien, sit amet luctus eros 
-      nunc vitae turpis. Sed sit amet lacus eu arcu ultricies pretium.
+      O projeto EcoBike é uma iniciativa que vai ao encontro das boas práticas em favor de uma <b>Pegada Ecológica</b>
+      consciente. A métrica é simples: quanto mais bikes, menos carros e, com efeito, menor a emissão de CO2 para a atmosfera. Além disso, 
+      o uso de bikes reduz o engarrafamento crescente da cidade, dada a mobilidade que elas provêm. Desejamos tornar Joinville uma cidade com parâmetros do
+      primeiro mundo, onde tais práticas (como a EcoBike) já são corriqueiras.
     </p>
+    <p>
+      Para tanto, disponibilizaremos, em espaço aberto e de fácil acesso, bikes, tradicionais ou elétricas, que são liberadas/trancadas 
+      por cadeado eletrônico. Qualquer um com <b>acesso à internet</b> pode alugar uma bike, liberando-a de seu cadeado eletrônico.
+    </p>
+    <p><b>IMPORTANTE</b>: Nem todas as features descritas estão imediatamente disponíveis.</p>
   </section>
 
   <!-- FAQ COLAPSÁVEL -->
@@ -111,21 +119,53 @@
     <h2>Dúvidas Frequentes</h2>
     <details>
       <summary>Não encontrei a minha região, e agora?</summary>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Estamos analisando a adesão de novas regiões. Assine nossa newsletter (gratuitamente) para manter-se informado.</p>
     </details>
     <details>
       <summary>É possível pagar com dinheiro?</summary>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Não é possível. As bikes são liberadas digitalmente, sem interferência de pessoal, por isso tudo é online.</p>
     </details>
     <details>
       <summary>Como funciona a retirada?</summary>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Seleciona-se a bike de interesse, efetua-se o pagamento e ela é liberada do cadeado eletrônico.</p>
     </details>
     <details>
       <summary>Onde retirar e onde devolver?</summary>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Retira-se no local de interesse. Pode-se devolver em qualquer estação.</p>
+    </details>
+    <details>
+      <summary>Como realizo a devolução da bike?</summary>
+      <p>Basta posicioná-la na plataforma de devolução e fechar o cadeado. Uma mensagem de confirmação será enviada em seu celular:</p>
+      <p>(1) Devolver bike.</p>
+      <p>(2) Estacioná-la (se zerados, renova os créditos automaticamente).</p>
+    </details>
+    <details>
+      <summary>Deixei a bike estacionada em uma estação, como faço para pegá-la novamente?</summary>
+      <p>Se ainda houver créditos disponíveis, você poderá desbloquear a bike pelo celular acessando sua conta e selecionando a bike em "bikes alugadas".</p>
+    </details>
+    <details>
+      <summary>Estou tentando alugar uma bike, mas recebo "Erro 199"</summary>
+      <p>O <b>Erro 199</b> indica que a bike em questão já foi alugada. O visor digital do cadeado de bikes alugadas fica amarelado, caso contrário, contate o suporte.</p>
     </details>
   </section>
+
+  <!-- MODAL NEWSLETTER -->
+  <div id="newsletter" class="modal hidden">
+    <div class="modal-content">
+      <span id="close-news" class="close">×</span>
+      <h2>Assine nossa Newsletter</h2>
+      <!-- NÃO ESTÁ FUNCIONADNO. EDITAR-->
+      <form id="newsletter-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfXjwPrzi1bQD68ACTwOGt85hfKCfa2x36uSNqV-Aw75IFHWg/viewform?usp=sharing" method="POST" target="hidden-form">
+        <label>Nome:
+          <input type="text" name="entry.NOME_ID" required>
+        </label>
+        <label>E-mail:
+          <input type="email" name="entry.EMAIL_NEWS_ID" required>
+        </label>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </div>
+  </div>
 
   <!-- QR CODE -->
   <div id="qr-code" class="qr-code">
