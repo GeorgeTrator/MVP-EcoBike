@@ -118,3 +118,27 @@ function iniciarTransicaoFinal() {
 
   TIMER.textContent = 'Tempo Esgotado!';
 }
+
+// =============================
+// 7) Amplia imagem do último slide
+// =============================
+function bindFinalImageExpand() {
+  // Seleciona a imagem dentro do slide de considerações
+  const finalImg = document.querySelector('#slide-consideracoes .slide-content img');
+  if (!finalImg) return;
+
+  finalImg.style.cursor = 'pointer';  // indica que é clicável
+
+  finalImg.addEventListener('click', () => {
+    // cria overlay escuro
+    const overlay = document.createElement('div');
+    overlay.className = 'qr-overlay'; // pode reaproveitar a classe existente
+    // insere a própria imagem em tamanho real
+    overlay.innerHTML = `<img src="${finalImg.src}" style="max-width:90vw; max-height:90vh; object-fit:contain;">`;
+    document.body.appendChild(overlay);
+    // remove ao clicar
+    overlay.addEventListener('click', () => overlay.remove());
+  });
+}
+
+bindFinalImageExpand();

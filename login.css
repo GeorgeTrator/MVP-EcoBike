@@ -2,7 +2,7 @@
   --verde-borda: #4caf50;
   --sombra: rgba(0,0,0,0.12);
   --highlight: #e8f5e9;
-  --bg-destaque: rgba(0, 128, 0, 0.05); /* leve contraste */
+  --bg-destaque: rgba(0, 128, 0, 0.05);
 }
 
 /* ===== LOGIN ===== */
@@ -19,16 +19,22 @@
 .hidden { display: none; }
 
 /* ===== SLIDE ===== */
-#restricted-content { margin-top: 2rem; text-align: center; }
+#restricted-content {
+  margin-top: 2rem;
+  text-align: center;
+}
 .slide {
   background: #fff;
   border: 3px solid var(--verde-borda);
   border-radius: 12px;
   box-shadow: 0 4px 16px var(--sombra);
-  max-width: 900px; height: 600px;
-  margin: 4rem auto; position: relative;
+  max-width: 900px;
+  height: 600px;
+  margin: 4rem auto;
+  position: relative;
   transition: transform 0.3s, box-shadow 0.3s;
-  display: flex; flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .slide:hover {
   transform: translateY(-8px) scale(1.02);
@@ -57,7 +63,8 @@
   padding: 1rem;
   border-radius: 8px;
   overflow-y: auto;
-  font-size: 1rem; line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 .destaque-caixa p + p {
   margin-top: 1rem;
@@ -76,20 +83,39 @@
   box-shadow: 0 4px 16px var(--sombra);
   transition: box-shadow 0.3s, transform 0.3s;
 }
-/* Hover dourado */
 .imagem img:hover {
   box-shadow: 0 4px 16px rgba(255,215,0,0.4);
   transform: translateY(-4px);
 }
 
-/* Último slide só imagem central */
-.center-only { justify-content: center!important; }
+/* ===== ÚLTIMO SLIDE: só imagem central, dimensionada corretamente ===== */
+.center-only {
+  justify-content: center !important;
+}
+
+/* ===== ÚLTIMO SLIDE: garante que a imagem caiba dentro do slide ===== */
+#slide-consideracoes .slide-content img {
+  max-width: 80%;        /* não ultrapassa 80% da largura */
+  max-height: 480px;      /* não ultrapassa 480px de altura */
+  width: auto;
+  height: auto;
+  object-fit: contain;    /* preserva proporção */
+  border-radius: 8px;
+  box-shadow: 0 4px 16px var(--sombra);
+}
+
+
+
 
 /* ===== SETA AVANÇAR ===== */
 .next-arrow {
-  position: absolute; bottom: 1rem; right: 1.5rem;
-  font-size: 2.5rem; color: var(--verde-borda);
-  cursor: pointer; transition: transform 0.2s, color 0.2s;
+  position: absolute;
+  bottom: 1rem;
+  right: 1.5rem;
+  font-size: 2.5rem;
+  color: var(--verde-borda);
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
 }
 .next-arrow:hover {
   transform: translateX(6px);
@@ -98,32 +124,51 @@
 
 /* ===== QR CODE ===== */
 .qr-code {
-  position: fixed; bottom: 1rem; right: 1rem;
-  width: 60px; height: 60px; cursor: pointer;
-  z-index: 150; transition: transform 0.3s;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  z-index: 150;
+  transition: transform 0.3s;
 }
-.qr-code:hover { transform: scale(1.1); }
+.qr-code:hover {
+  transform: scale(1.1);
+}
 .qr-code img {
-  width: 100%; height: 100%;
-  border-radius: 8px; border: 2px solid var(--verde-borda);
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 2px solid var(--verde-borda);
 }
 .qr-overlay {
-  position: fixed; inset: 0;
+  position: fixed;
+  inset: 0;
   background: rgba(0,0,0,0.85);
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 250;
 }
 .qr-overlay img {
-  width: 90vw; max-width: 600px;
-  border-radius: 12px; box-shadow: 0 0 24px var(--verde-borda);
+  width: 90vw;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 0 24px var(--verde-borda);
 }
 
 /* ===== TEMPORIZADOR ===== */
 #timer {
-  position: fixed; top: 1rem; right: 1rem;
-  font-size: 1.2rem; font-weight: bold;
-  background: var(--highlight); padding: 0.4rem 0.8rem;
-  border-radius: 6px; z-index: 200;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: var(--highlight);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  z-index: 200;
   transition: all 1s ease;
 }
 
@@ -131,16 +176,25 @@
 body.fade-to-black {
   animation: fadeBackground 2s forwards;
 }
-@keyframes fadeBackground { to { background: #000; } }
+@keyframes fadeBackground {
+  to { background: #000; }
+}
 #timer.move-to-center {
-  top: 50%; right: 50%;
+  top: 50%;
+  right: 50%;
   transform: translate(50%,-50%) scale(2);
-  opacity: 0; transition: all 2s ease;
+  opacity: 0;
+  transition: all 2s ease;
 }
 #skull {
-  position: fixed; top: 50%; left: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%,-50%);
-  width: 200px; opacity: 0;
+  width: 200px;
+  opacity: 0;
   transition: opacity 2s ease 2s;
 }
-#skull.fade-in { opacity: 1; }
+#skull.fade-in {
+  opacity: 1;
+}
