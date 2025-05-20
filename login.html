@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EcoBike · Login & Apresentação</title>
+  <link rel="icon" href="imgs/favicon.ico">
+
+  <!-- Estilos globais -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Estilos de login e slides -->
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <!-- ===== FORMULÁRIO DE LOGIN ===== -->
+  <main class="login-container">
+    <h1>Área Restrita</h1>
+    <form id="login-form">
+      <label>
+        E‑mail:
+        <input type="email" id="email" required>
+      </label>
+      <label>
+        Senha:
+        <input type="password" id="senha" required>
+      </label>
+      <button type="submit" class="btn">Entrar</button>
+      <p id="erro" class="error hidden">E‑mail ou senha incorretos.</p>
+    </form>
+  </main>
+
+  <!-- ===== SLIDES ===== -->
+  <section id="restricted-content" class="hidden">
+
+    <!-- SLIDE 1: Problema -->
+    <div class="slide" id="slide-problema">
+      <h2>Mobilidade em Joinville</h2>
+      <div class="slide-content">
+        <!-- Caixa de texto com leve contraste -->
+        <div class="texto destaque-caixa">
+          <p>(1) Rua XV, Av. Getúlio Vargas, Dona Francisca, Mons. Gercino...</p>
+          <p>(2) Transporte público: caro, inflexível, gera CO₂.</p>
+          <p>(3) Sustentável (bikes/patinetes) nem sempre disponível.</p>
+          <p>(OBS) Trânsito = estresse → menos produtividade.</p>
+        </div>
+        <!-- Imagem com efeito hover dourado -->
+        <div class="imagem">
+          <img src="imgs/Logo.png" alt="Bicicleta Contextual">
+        </div>
+      </div>
+      <div class="next-arrow" data-next="slide-publico">&#x21E8;</div>
+    </div>
+
+    <!-- SLIDE 2: Público-Alvo -->
+    <div class="slide hidden" id="slide-publico">
+      <h2>Público‑Alvo</h2>
+      <div class="slide-content">
+        <div class="texto destaque-caixa">
+          <p>(1) 12 - 35 anos</p>
+          <p>(2) Desenvolvimento pessoal, físico ou de saúde.</p>
+          <p>(3) OBS: para as crianças o lúdico é um atrativo maior.</p>
+        </div>
+        <!-- Imagem que alterna ao clicar e amplia ao clicar duplo -->
+        <div class="imagem clicavel" id="publico-img-container">
+          <img src="imgs/jovens.png" alt="Jovens ilustrativos" id="publico-img">
+        </div>
+      </div>
+      <div class="next-arrow" data-next="slide-eco">&#x21E8;</div>
+    </div>
+
+    <!-- SLIDE 3: Eco‑Bike -->
+    <div class="slide hidden" id="slide-eco">
+      <h2>EcoBike</h2>
+      <div class="slide-content">
+        <div class="texto destaque-caixa">
+          <p>(1) Bikes de acesso direto (ao ar livre).</p>
+          <p>(2) Totalmente digitalizada.</p>
+          <p>(3) Estabelecendo uma cultura nova em Joinville.</p>        </div>
+        <div class="imagem">
+          <img src="imgs/solucao.png" alt="Imagem da solução Eco‑Bike">
+        </div>
+      </div>
+      <div class="next-arrow" data-next="slide-vago">&#x21E8;</div>
+    </div>
+
+    <!-- SLIDE 4: Espaço vago -->
+    <div class="slide hidden" id="slide-vago">
+      <h2>Espaço vago</h2>
+      <div class="slide-content">
+        <div class="texto destaque-caixa">
+          <p>(1) Iniciativa parecida: Tembici; RJ, SP...</p>
+          <p>(2) A EcoBike supre o "vácuo de poder"</p>
+          <p>(3) Petróleo Moderno: DADOS</p>        </div>
+        <div class="imagem">
+          <img src="imgs/competidores.png" alt="Oportunidade de mercado">
+        </div>
+      </div>
+      <div class="next-arrow" data-next="slide-consideracoes">&#x21E8;</div>
+    </div>
+
+    <!-- SLIDE 5: Considerações Finais -->
+    <div class="slide hidden" id="slide-consideracoes">
+      <h2>Considerações Finais</h2>
+      <div class="slide-content center-only">
+        <img src="imgs/Equipe1.png" alt="Time EcoBike">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== QR‑CODE ===== -->
+  <div id="qr-code" class="qr-code">
+    <img src="imgs/siteQrCode.png" alt="QR Code EcoBike">
+  </div>
+
+  <!-- ===== TEMPORIZADOR ===== -->
+  <div id="timer">540 s</div>
+
+  <script src="login.js"></script>
+</body>
+</html>
