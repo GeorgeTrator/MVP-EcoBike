@@ -59,7 +59,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-image .8s ease-in-out;
+  transition: background-image .8s ease-in-out; /*Suavia a transição do js */
 }
 .hero-overlay {
   background: rgba(0, 0, 0, 0.4);
@@ -248,7 +248,7 @@ body {
 #footer-link { color: var(--branco); text-decoration: none; font-weight: 600; transition: text-shadow 0.3s; }
 #footer-link:hover { text-shadow: 0 0 8px var(--verde-logo); }
 
-/* RESPONSIVO */
+/* RESPONSIVO (mobile e desktop) */
 @media (max-width: 768px) {
   .hero { min-height: 50vh; }
   .site-header { flex-wrap: wrap; padding: 1rem; }

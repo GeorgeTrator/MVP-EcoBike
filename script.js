@@ -12,7 +12,7 @@ function rotateHero() {
   idx = (idx + 1) % images.length;
 }
 rotateHero();
-setInterval(rotateHero, 5000);
+setInterval(rotateHero, 5000); // Repete rotateHero() intervaladamente
 
 // — Modal de aluguel —
 const rentButtons = document.querySelectorAll('.rent-btn');
@@ -67,7 +67,7 @@ newsForm.addEventListener('submit', () => {
   setTimeout(() => newsModal.classList.add('hidden'), 500);
 });
 
-// — QR code overlay —
+// — QR code overlay (deixa grande) —
 const qrCode = document.getElementById('qr-code');
 qrCode.addEventListener('click', () => {
   const overlay = document.createElement('div');

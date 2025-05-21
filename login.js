@@ -66,6 +66,7 @@ function iniciarContagem() {
 // =============================
 // 4) Navegação entre slides
 // =============================
+// OBS: Não está funcionando
 function iniciarSlideshow() {
   const slides = Array.from(document.querySelectorAll('.slide'))
     .reduce((obj, el) => (obj[el.id] = el, obj), {});
